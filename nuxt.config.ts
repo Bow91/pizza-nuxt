@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', 'nuxt-icon'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/icon'],
   css: ['~/assets/scss/main.scss'],
   app: {
     head: {
@@ -19,6 +19,11 @@ export default defineNuxtConfig({
           href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap'
         }
       ]
+    }
+  },
+  icon: {
+    serverBundle: {
+      collections: ['uil', 'mdi']
     }
   }
 })
