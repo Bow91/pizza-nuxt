@@ -1,16 +1,13 @@
 <template>
-  <div class="min-h-screen bg-gray-50">
-    <!-- Темная шапка -->
+  <div class="min-h-screen bg-gray-50 flex flex-col">
     <header class="bg-gray-900 text-white shadow-lg sticky top-0 z-50">
       <div class="container mx-auto px-4">
         <div class="flex justify-between items-center py-4">
-          <!-- Логотип -->
           <div class="flex items-center space-x-2">
             <Icon name="mdi:pizza" class="text-3xl text-red-500" />
             <span class="text-2xl font-bold">PizzaGrad</span>
           </div>
 
-          <!-- Навигация для десктопа -->
           <nav class="hidden lg:flex items-center space-x-8 flex-1 justify-end mr-8">
             <NuxtLink 
               to="/" 
@@ -116,12 +113,11 @@
       </div>
     </header>
     
-    <main>
+    <main class="flex-1">
       <slot />
     </main>
     
-    <!-- Темный подвал -->
-    <footer class="bg-gray-900 text-white mt-16">
+    <footer class="bg-gray-900 text-white mt-auto">
       <div class="container mx-auto px-4 py-8">
         <div class="flex flex-col md:flex-row justify-between items-center">
           <div class="flex items-center space-x-2 mb-4 md:mb-0">
@@ -146,7 +142,7 @@
           
           <div class="text-center md:text-right">
             <div class="text-sm text-gray-400 mb-1">+7 (999) 123-45-67</div>
-            <div class="text-xs text-gray-500">© 2022 PizzaGrad. Все права защищены.</div>
+            <div class="text-xs text-gray-500">© 2025 PizzaGrad. Все права защищены.</div>
           </div>
         </div>
       </div>
@@ -193,17 +189,5 @@ onUnmounted(() => {
 
 .router-link-active .group span {
   @apply w-full;
-}
-
-/* Стили для мобильного меню */
-.mobile-menu-enter-active,
-.mobile-menu-leave-active {
-  transition: all 0.3s ease;
-}
-
-.mobile-menu-enter-from,
-.mobile-menu-leave-to {
-  opacity: 0;
-  transform: translateY(-10px);
 }
 </style>

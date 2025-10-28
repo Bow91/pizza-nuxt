@@ -1,6 +1,8 @@
 <template>
   <div>
-    <section class="relative bg-red-600 text-white overflow-hidden">
+    <!-- Секция с картинкой -->
+    <section class="relative bg-red-600 text-white overflow-hidden rounded-b-3xl lg:rounded-b-4xl rounded-t-3xl lg:rounded-t-4xl mt-4 mx-4">
+      <!-- Фоновое изображение -->
       <div class="absolute inset-0 z-0">
         <img 
           src="/img/pizza.jpg" 
@@ -9,29 +11,34 @@
         />
         <div class="absolute inset-0 bg-black bg-opacity-50"></div>
       </div>
-      <div class="container mx-auto px-4 py-20">
+      
+      <div class="container mx-auto px-4 py-24 lg:py-32 relative z-10">
         <div class="max-w-2xl">
-          <h1 class="text-5xl md:text-6xl font-bold mb-6">
+          <h1 class="text-5xl md:text-6xl font-bold mb-8">
             Самая вкусная пицца
             <span class="text-yellow-300">в городе!</span>
           </h1>
-          <p class="text-xl mb-8 opacity-90">
+          <p class="text-xl mb-12 opacity-90 leading-relaxed">
             Свежие ингредиенты, итальянские рецепты и быстрая доставка. 
             Закажите сейчас и получите скидку 20% на первый заказ!
           </p>
-          <div class="flex space-x-4">
-            <NuxtLink to="/menu" class="bg-yellow-400 text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition-colors">
+          <div class="flex flex-wrap gap-6">
+            <NuxtLink to="/menu" class="bg-yellow-400 text-gray-900 px-8 py-4 rounded-xl font-semibold hover:bg-yellow-300 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
               Заказать сейчас
             </NuxtLink>
-            <button class="border-2 border-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-red-600 transition-colors">
-              Посмотреть меню
+            <button 
+              @click="scrollToFeatures" 
+              class="border-2 border-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-red-600 transition-all transform hover:-translate-y-1"
+            >
+              Узнать больше
             </button>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="py-16 bg-white">
+    <!-- Преимущества -->
+    <section id="features" class="py-16 bg-white">
       <div class="container mx-auto px-4">
         <h2 class="text-3xl font-bold text-center mb-12">Почему выбирают нас?</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -67,4 +74,20 @@ useSeoMeta({
   title: 'PizzaGrad - Лучшая пицца с доставкой',
   description: 'Закажите свежую пиццу с доставкой за 30-45 минут. Натуральные ингредиенты, итальянские рецепты.'
 })
+
+const scrollToFeatures = () => {
+  const featuresSection = document.querySelector('#features')
+  if (featuresSection) {
+    featuresSection.scrollIntoView({ behavior: 'smooth' })
+  }
+}
 </script>
+
+<style scoped>
+/* Дополнительные стили для герой-секции */
+.hero-section {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+}
+</style>
